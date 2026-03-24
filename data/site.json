@@ -92,14 +92,6 @@
   ],
   "producers": [
     {
-      "id": 1,
-      "name": "COSMO ",
-      "instagram_url": "https://www.instagram.com/cosmoprod.latam/",
-      "category": "PRODUCTORA",
-      "notes": "EVENTOS Y FESTIVALES",
-      "visible": true
-    },
-    {
       "id": 2,
       "name": "ENVIVO ",
       "instagram_url": "https://www.instagram.com/envivo_sv/",
@@ -111,6 +103,14 @@
       "id": 3,
       "name": "TWO SHOWS PRODUCCIONES",
       "instagram_url": "https://www.instagram.com/twoshowsproducciones/",
+      "category": "PRODUCTORA",
+      "notes": "EVENTOS Y FESTIVALES",
+      "visible": true
+    },
+    {
+      "id": 4,
+      "name": "COSMO PRODUCCIONES",
+      "instagram_url": "https://www.instagram.com/cosmoprod.latam/",
       "category": "PRODUCTORA",
       "notes": "EVENTOS Y FESTIVALES",
       "visible": true
