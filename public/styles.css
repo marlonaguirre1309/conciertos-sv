@@ -367,17 +367,23 @@ textarea { resize: vertical; }
   background: linear-gradient(180deg, rgba(124,58,237,.25), rgba(34,197,94,.18));
   border: 1px solid rgba(255,255,255,.08);
 }
-
-.producer-avatar span {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: white;
+.producer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.producer-logo {
+.producer-avatar img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  background: #111;
-  padding: 6px;
+  object-fit: cover;
+}
+
+.producer-avatar span {
+  font-weight: bold;
+  color: white;
 }
