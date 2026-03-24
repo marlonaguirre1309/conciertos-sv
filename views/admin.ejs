@@ -125,7 +125,9 @@
       <form method="post" action="/admin/producers" class="grid-form">
         <label>Nombre<input type="text" name="name" required></label>
         <label>Instagram<input type="url" name="instagram_url" required></label>
+<label>Logo<input type="text" name="logo" value="<%= item.logo || '' %>" placeholder="/logos/cosmo.png"></label>
         <label>Categoría<input type="text" name="category"></label>
+<label>Logo<input type="text" name="logo" placeholder="/logos/cosmo.png"></label>
         <label class="full">Notas<textarea name="notes" rows="2"></textarea></label>
         <label class="check"><input type="checkbox" name="visible" checked> Mostrar al público</label>
         <button type="submit">Agregar productora</button>

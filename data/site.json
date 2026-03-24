@@ -3,7 +3,7 @@
     {
       "id": 1,
       "username": "admin",
-      "password_hash": "PLAINTEXT:admin12345"
+      "password_hash": "$2a$10$7vYOmNiGg6PlKYRbiNEr0.ADWu/PinxdjPHVzfrzsoJ/chLksZzp."
     }
   ],
   "settings": {
@@ -75,6 +75,19 @@
       "ticket_url": "https://juniorhsv.funcapital.com/checkout/AZxSxiuZYRTDl4ruOkjJ",
       "notes": "JUNIOR H EL REY DE LOS CORRIDOS TUMBADOS EN EL SALVADOR  🤠",
       "visible": true
+    },
+    {
+      "id": 4,
+      "title": "ADAL RAMONES",
+      "event_date": "2026-06-29",
+      "venue": "TEATRO PRESIDENTE",
+      "city": "SAN SALVADOR",
+      "producer_name": "TWO SHOWS",
+      "producer_instagram": "https://www.instagram.com/twoshowsproducciones/",
+      "source_post_url": "https://www.instagram.com/p/DV1f4dWEaVY/",
+      "ticket_url": "",
+      "notes": "Prepárate para reír sin parar 🤣🙌🏻\r\nADAL RAMONES EN EL SALVADOR ",
+      "visible": true
     }
   ],
   "producers": [
@@ -90,6 +103,14 @@
       "id": 2,
       "name": "ENVIVO ",
       "instagram_url": "https://www.instagram.com/envivo_sv/",
+      "category": "PRODUCTORA",
+      "notes": "EVENTOS Y FESTIVALES",
+      "visible": true
+    },
+    {
+      "id": 3,
+      "name": "TWO SHOWS PRODUCCIONES",
+      "instagram_url": "https://www.instagram.com/twoshowsproducciones/",
       "category": "PRODUCTORA",
       "notes": "EVENTOS Y FESTIVALES",
       "visible": true
