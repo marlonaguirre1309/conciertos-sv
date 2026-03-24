@@ -1,0 +1,98 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "PLAINTEXT:admin12345"
+    }
+  ],
+  "settings": {
+    "site_title": "ConciertosSV",
+    "hero_text": "Encuentra conciertos, eventos y productoras en un solo lugar.",
+    "intro_text": "Tu guia completa de conciertos nacionales e internacionales",
+    "whatsapp_number": "50364566708",
+    "whatsapp_message": "Hola, quiero información sobre conciertos."
+  },
+  "socials": [
+    {
+      "id": 1,
+      "platform": "Instagram",
+      "url": "https://www.instagram.com/conciertossv?igsh=eDYyNnU1MWsyNG9n&utm_source=qr",
+      "handle": "@conciertossv",
+      "sort_order": 1
+    },
+    {
+      "id": 2,
+      "platform": "Facebook",
+      "url": "https://www.facebook.com/share/14beCfaVKRW/?mibextid=wwXIfr",
+      "handle": "ConciertosSV",
+      "sort_order": 2
+    },
+    {
+      "id": 3,
+      "platform": "TikTok",
+      "url": "https://www.tiktok.com/@conciertossvelsalvador?_r=1&_t=ZS-94wVXSLyZmv",
+      "handle": "@conciertossvelsalvador",
+      "sort_order": 3
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "TROPICALIA",
+      "event_date": "2026-04-02",
+      "venue": "COSTA DEL SOL",
+      "city": "LA PAZ",
+      "producer_name": "COSMO PRODUCCIONES",
+      "producer_instagram": "https://www.instagram.com/cosmoprod.latam/",
+      "source_post_url": "https://www.instagram.com/p/DVY0P2IDlrs/?img_index=1",
+      "ticket_url": "https://tropicalia.funcapital.com/checkout/AZwPpcuyuzTSIDyqSojc",
+      "notes": "TROPICALIA EL MEJOR EVENTO PARA TU SEMANA SANTA 😎",
+      "visible": true
+    },
+    {
+      "id": 2,
+      "title": "SMASH MOUTH",
+      "event_date": "2026-04-18",
+      "venue": "BE SPORT",
+      "city": "ANTIGUO CUSCATLAN",
+      "producer_name": "COSMO PRODUCCIONES",
+      "producer_instagram": "https://www.instagram.com/cosmoprod.latam/",
+      "source_post_url": "https://www.instagram.com/p/DVMi9D4kr04/?img_index=1",
+      "ticket_url": "https://smashmouth.funcapital.com/login/AZxyo1ZreKToNgqzpF",
+      "notes": "SMASH MOUTH SE PRESENTA EN EL SALVADOR POR PRIMERA VEZ ",
+      "visible": true
+    },
+    {
+      "id": 3,
+      "title": "JUNIOR H ",
+      "event_date": "2026-04-16",
+      "venue": "PARQUE DE PELOTA",
+      "city": "SAN SALVADOR",
+      "producer_name": "COSMO PRODUCCIONES",
+      "producer_instagram": "https://www.instagram.com/cosmoprod.latam/",
+      "source_post_url": "https://www.instagram.com/p/DU1DqtiD4d0/",
+      "ticket_url": "https://juniorhsv.funcapital.com/checkout/AZxSxiuZYRTDl4ruOkjJ",
+      "notes": "JUNIOR H EL REY DE LOS CORRIDOS TUMBADOS EN EL SALVADOR  🤠",
+      "visible": true
+    }
+  ],
+  "producers": [
+    {
+      "id": 1,
+      "name": "COSMO ",
+      "instagram_url": "https://www.instagram.com/cosmoprod.latam/",
+      "category": "PRODUCTORA",
+      "notes": "EVENTOS Y FESTIVALES",
+      "visible": true
+    },
+    {
+      "id": 2,
+      "name": "ENVIVO ",
+      "instagram_url": "https://www.instagram.com/envivo_sv/",
+      "category": "PRODUCTORA",
+      "notes": "EVENTOS Y FESTIVALES",
+      "visible": true
+    }
+  ]
+}

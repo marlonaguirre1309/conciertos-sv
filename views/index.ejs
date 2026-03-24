@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= settings.site_title %></title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="page-glow"></div>
+
+  <header class="hero hero-premium">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="badge">Agenda oficial de conciertos</span>
+        <div class="logo-title">
+  <img src="/logo.png" alt="logo" class="logo-img">
+  <h1><%= settings.site_title %></h1>
+</div>
+        <p class="lead"><%= settings.hero_text %></p>
+        <p class="hero-text"><%= settings.intro_text %></p>
+
+        <div class="hero-actions">
+          <a class="primary-cta" href="#eventos">Ver eventos</a>
+          <a class="ghost-cta" href="#productoras">Ver productoras</a>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <strong><%= events.length %></strong>
+            <span>Eventos visibles</span>
+          </div>
+          <div class="stat-card">
+            <strong><%= producers.length %></strong>
+            <span>Productoras</span>
+          </div>
+          <div class="stat-card">
+            <strong><%= socials.length %></strong>
+            <span>Redes activas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-card visual-main">
+          <span class="visual-label">Próximo movimiento</span>
+          <% if (events.length) { %>
+            <h3><%= events[0].title %></h3>
+            <p><%= events[0].event_date %> · <%= events[0].venue || 'Lugar por confirmar' %></p>
+          <% } else { %>
+            <h3>Tu cartelera lista para crecer</h3>
+            <p>Agrega eventos desde tu panel y se mostrarán aquí con estilo tipo agenda premium.</p>
+          <% } %>
+        </div>
+        <div class="visual-card visual-side">
+          <span class="visual-label">Redes oficiales</span>
+          <% socials.slice(0, 3).forEach(item => { %>
+            <div class="mini-social">
+              <strong><%= item.platform %></strong>
+              <span><%= item.handle %></span>
+            </div>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="container socials-strip-wrap">
+    <div class="socials-strip">
+      <% socials.forEach(item => { %>
+        <a class="social-pill" href="<%= item.url %>" target="_blank" rel="noreferrer">
+          <span><%= item.platform %></span>
+          <strong><%= item.handle %></strong>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <main class="container sections">
+    <section id="eventos" class="section-block">
+      <div class="section-title-row">
+        <div>
+          <span class="eyebrow">Cartelera</span>
+          <h2>Próximos eventos</h2>
+        </div>
+        <span class="muted">Editables desde tu panel privado</span>
+      </div>
+      <% if (!events.length) { %>
+        <div class="empty-box">Todavía no has agregado eventos próximos.</div>
+      <% } %>
+      <div class="event-grid">
+        <% events.forEach(event => { %>
+          <article class="event-card">
+            <div class="event-card-top">
+              <div>
+                <span class="date-pill"><%= event.event_date %></span>
+                <h3><%= event.title %></h3>
+              </div>
+              <% if (event.city) { %>
+                <span class="city-badge"><%= event.city %></span>
+              <% } %>
+            </div>
+
+            <div class="event-meta">
+              <p><strong>Lugar</strong><span><%= event.venue || 'Por confirmar' %></span></p>
+              <p><strong>Ciudad</strong><span><%= event.city || 'El Salvador' %></span></p>
+              <% if (event.producer_name) { %>
+                <p><strong>Productora</strong><span><%= event.producer_name %></span></p>
+              <% } %>
+            </div>
+
+            <% if (event.notes) { %>
+              <p class="event-notes"><%= event.notes %></p>
+            <% } %>
+
+            <div class="card-actions premium-actions">
+              <% if (event.ticket_url) { %>
+                <a class="ticket-btn" href="<%= event.ticket_url %>" target="_blank" rel="noreferrer">Comprar tickets</a>
+              <% } %>
+              <% if (event.source_post_url) { %>
+                <a class="secondary-link" href="<%= event.source_post_url %>" target="_blank" rel="noreferrer">Ver publicación</a>
+              <% } %>
+              <% if (event.producer_instagram) { %>
+                <a class="secondary-link" href="<%= event.producer_instagram %>" target="_blank" rel="noreferrer">Instagram productora</a>
+              <% } %>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+
+    <section id="productoras" class="section-block">
+      <div class="section-title-row">
+        <div>
+          <span class="eyebrow">Aliados</span>
+          <h2>Productoras destacadas</h2>
+        </div>
+        <span class="muted">Acceso directo a sus perfiles de Instagram</span>
+      </div>
+      <% if (!producers.length) { %>
+        <div class="empty-box">Aún no has agregado productoras.</div>
+      <% } %>
+      <div class="producer-grid">
+        <% producers.forEach(producer => { %>
+          <article class="producer-card premium-producer">
+            <div class="producer-top">
+              <div class="producer-avatar"><%= producer.name.charAt(0).toUpperCase() %></div>
+              <div>
+                <h3><%= producer.name %></h3>
+                <% if (producer.category) { %>
+                  <p class="muted"><%= producer.category %></p>
+                <% } %>
+              </div>
+            </div>
+            <% if (producer.notes) { %>
+              <p><%= producer.notes %></p>
+            <% } %>
+            <a class="button-link" href="<%= producer.instagram_url %>" target="_blank" rel="noreferrer">Visitar Instagram</a>
+          </article>
+        <% }) %>
+      </div>
+    </section>
+  </main>
+
+  <% if (settings.whatsapp_number) { %>
+    <a
+      class="floating-whatsapp"
+      href="https://wa.me/<%= settings.whatsapp_number %>?text=<%= encodeURIComponent(settings.whatsapp_message || 'Hola, quiero información sobre conciertos.') %>"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Contactar por WhatsApp"
+    >
+      <span class="wa-icon">✆</span>
+      <span class="wa-text">WhatsApp</span>
+    </a>
+  <% } %>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "conciertossv-site",
+  "version": "1.0.0",
+  "description": "Sitio web administrable para ConciertosSV",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

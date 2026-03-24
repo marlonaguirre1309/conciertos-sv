@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel privado</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="admin-body">
+  <div class="container admin-topbar">
+    <div>
+      <h1>Panel privado</h1>
+      <p>Hola, <strong><%= username %></strong>. Aquí editas todo el sitio.</p>
+    </div>
+    <form method="post" action="/admin/logout">
+      <button type="submit" class="secondary">Cerrar sesión</button>
+    </form>
+  </div>
+
+  <main class="container admin-sections">
+    <% if (message) { %>
+      <div class="alert success"><%= message %></div>
+    <% } %>
+
+    <section class="panel">
+      <h2>Configuración general</h2>
+      <form method="post" action="/admin/settings" class="grid-form">
+        <label>Título del sitio
+          <input type="text" name="site_title" value="<%= settings.site_title %>" required />
+        </label>
+        <label>Texto principal
+          <input type="text" name="hero_text" value="<%= settings.hero_text %>" required />
+        </label>
+        <label class="full">Introducción
+          <textarea name="intro_text" rows="3" required><%= settings.intro_text %></textarea>
+        </label>
+        <label>Número de WhatsApp
+          <input type="text" name="whatsapp_number" value="<%= settings.whatsapp_number || '' %>" placeholder="503XXXXXXXX" />
+        </label>
+        <label>Mensaje de WhatsApp
+          <input type="text" name="whatsapp_message" value="<%= settings.whatsapp_message || '' %>" placeholder="Hola, quiero información sobre conciertos" />
+        </label>
+        <button type="submit">Guardar cambios</button>
+      </form>
+      <p class="small muted">Escribe el número de WhatsApp sin +, espacios ni guiones. Ejemplo: 50370000000</p>
+    </section>
+
+    <section class="panel">
+      <h2>Cambiar contraseña</h2>
+      <form method="post" action="/admin/password" class="grid-form compact-grid">
+        <label>Contraseña actual
+          <input type="password" name="current_password" required />
+        </label>
+        <label>Nueva contraseña
+          <input type="password" name="new_password" minlength="8" required />
+        </label>
+        <button type="submit">Actualizar contraseña</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Redes sociales</h2>
+      <form method="post" action="/admin/socials" class="grid-form compact-grid">
+        <label>Plataforma<input type="text" name="platform" required></label>
+        <label>URL<input type="url" name="url" required></label>
+        <label>Usuario / Handle<input type="text" name="handle" required></label>
+        <label>Orden<input type="number" name="sort_order" value="0"></label>
+        <button type="submit">Agregar red</button>
+      </form>
+
+      <% socials.forEach(item => { %>
+        <form method="post" action="/admin/socials/<%= item.id %>/update" class="list-editor">
+          <input type="text" name="platform" value="<%= item.platform %>" required>
+          <input type="url" name="url" value="<%= item.url %>" required>
+          <input type="text" name="handle" value="<%= item.handle %>" required>
+          <input type="number" name="sort_order" value="<%= item.sort_order %>">
+          <button type="submit">Guardar</button>
+        </form>
+        <form method="post" action="/admin/socials/<%= item.id %>/delete" class="inline-delete">
+          <button type="submit" class="danger">Eliminar</button>
+        </form>
+      <% }) %>
+    </section>
+
+    <section class="panel">
+      <h2>Eventos</h2>
+      <form method="post" action="/admin/events" class="grid-form">
+        <label>Título<input type="text" name="title" required></label>
+        <label>Fecha<input type="date" name="event_date" required></label>
+        <label>Lugar<input type="text" name="venue"></label>
+        <label>Ciudad<input type="text" name="city"></label>
+        <label>Nombre de productora<input type="text" name="producer_name"></label>
+        <label>Instagram de productora<input type="url" name="producer_instagram"></label>
+        <label>Link de publicación<input type="url" name="source_post_url"></label>
+        <label>Link de tickets<input type="url" name="ticket_url"></label>
+        <label class="full">Notas<textarea name="notes" rows="3"></textarea></label>
+        <label class="check"><input type="checkbox" name="visible" checked> Mostrar al público</label>
+        <button type="submit">Agregar evento</button>
+      </form>
+
+      <% events.forEach(item => { %>
+        <form method="post" action="/admin/events/<%= item.id %>/update" class="event-editor">
+          <div class="grid-form">
+            <label>Título<input type="text" name="title" value="<%= item.title %>" required></label>
+            <label>Fecha<input type="date" name="event_date" value="<%= item.event_date %>" required></label>
+            <label>Lugar<input type="text" name="venue" value="<%= item.venue || '' %>"></label>
+            <label>Ciudad<input type="text" name="city" value="<%= item.city || '' %>"></label>
+            <label>Productora<input type="text" name="producer_name" value="<%= item.producer_name || '' %>"></label>
+            <label>Instagram productora<input type="url" name="producer_instagram" value="<%= item.producer_instagram || '' %>"></label>
+            <label>Link publicación<input type="url" name="source_post_url" value="<%= item.source_post_url || '' %>"></label>
+            <label>Link tickets<input type="url" name="ticket_url" value="<%= item.ticket_url || '' %>"></label>
+            <label class="full">Notas<textarea name="notes" rows="2"><%= item.notes || '' %></textarea></label>
+            <label class="check"><input type="checkbox" name="visible" <%= item.visible ? 'checked' : '' %>> Visible</label>
+            <button type="submit">Guardar evento</button>
+          </div>
+        </form>
+        <form method="post" action="/admin/events/<%= item.id %>/delete" class="inline-delete">
+          <button type="submit" class="danger">Eliminar evento</button>
+        </form>
+      <% }) %>
+    </section>
+
+    <section class="panel">
+      <h2>Productoras</h2>
+      <form method="post" action="/admin/producers" class="grid-form">
+        <label>Nombre<input type="text" name="name" required></label>
+        <label>Instagram<input type="url" name="instagram_url" required></label>
+        <label>Categoría<input type="text" name="category"></label>
+        <label class="full">Notas<textarea name="notes" rows="2"></textarea></label>
+        <label class="check"><input type="checkbox" name="visible" checked> Mostrar al público</label>
+        <button type="submit">Agregar productora</button>
+      </form>
+
+      <% producers.forEach(item => { %>
+        <form method="post" action="/admin/producers/<%= item.id %>/update" class="event-editor">
+          <div class="grid-form compact-grid">
+            <label>Nombre<input type="text" name="name" value="<%= item.name %>" required></label>
+            <label>Instagram<input type="url" name="instagram_url" value="<%= item.instagram_url %>" required></label>
+            <label>Categoría<input type="text" name="category" value="<%= item.category || '' %>"></label>
+            <label class="full">Notas<textarea name="notes" rows="2"><%= item.notes || '' %></textarea></label>
+            <label class="check"><input type="checkbox" name="visible" <%= item.visible ? 'checked' : '' %>> Visible</label>
+            <button type="submit">Guardar productora</button>
+          </div>
+        </form>
+        <form method="post" action="/admin/producers/<%= item.id %>/delete" class="inline-delete">
+          <button type="submit" class="danger">Eliminar productora</button>
+        </form>
+      <% }) %>
+    </section>
+  </main>
+</body>
+</html>
