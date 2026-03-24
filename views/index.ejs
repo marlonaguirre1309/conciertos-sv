@@ -144,12 +144,13 @@
         <% producers.forEach(producer => { %>
           <article class="producer-card premium-producer">
             <div class="producer-top">
-              <% if (producer.logo) { %>
-  <img src="<%= producer.logo %>" class="producer-logo" />
-<% } else { %>
-  <div class="producer-avatar"><%= producer.name.charAt(0).toUpperCase() %></div>
-<% } %>
-              <div>
+              <div class="producer-avatar">
+  <% if (producer.logo) { %>
+    <img src="<%= producer.logo %>" class="producer-logo" alt="<%= producer.name %>" />
+  <% } else { %>
+    <span><%= producer.name.charAt(0).toUpperCase() %></span>
+  <% } %>
+</div>
                 <h3><%= producer.name %></h3>
                 <% if (producer.category) { %>
                   <p class="muted"><%= producer.category %></p>

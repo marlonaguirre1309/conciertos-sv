@@ -93,6 +93,7 @@
         <label>Instagram de productora<input type="url" name="producer_instagram"></label>
         <label>Link de publicación<input type="url" name="source_post_url"></label>
         <label>Link de tickets<input type="url" name="ticket_url"></label>
+        <label>Flyer<input type="text" name="flyer" placeholder="/flyers/tropicalia.jpg"></label>
         <label class="full">Notas<textarea name="notes" rows="3"></textarea></label>
         <label class="check"><input type="checkbox" name="visible" checked> Mostrar al público</label>
         <button type="submit">Agregar evento</button>
@@ -109,6 +110,7 @@
             <label>Instagram productora<input type="url" name="producer_instagram" value="<%= item.producer_instagram || '' %>"></label>
             <label>Link publicación<input type="url" name="source_post_url" value="<%= item.source_post_url || '' %>"></label>
             <label>Link tickets<input type="url" name="ticket_url" value="<%= item.ticket_url || '' %>"></label>
+            <label>Flyer<input type="text" name="flyer" value="<%= item.flyer || '' %>"></label>
             <label class="full">Notas<textarea name="notes" rows="2"><%= item.notes || '' %></textarea></label>
             <label class="check"><input type="checkbox" name="visible" <%= item.visible ? 'checked' : '' %>> Visible</label>
             <button type="submit">Guardar evento</button>
