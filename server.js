@@ -216,7 +216,8 @@ app.post('/admin/producers', requireAuth, (req, res) => {
     instagram_url: req.body.instagram_url,
     category: req.body.category,
     notes: req.body.notes,
-    visible: !!req.body.visible
+    visible: !!req.body.visible,
+logo: req.body.logo,
   });
   writeData(data);
   res.redirect('/admin?message=Productora agregada');
