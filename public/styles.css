@@ -349,17 +349,10 @@ textarea { resize: vertical; }
   }
 }
 .producer-logo {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 12px;
-  background: #111;
-  padding: 5px;
-}
-.producer-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  border-radius: 16px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -367,22 +360,12 @@ textarea { resize: vertical; }
   background: linear-gradient(180deg, rgba(124,58,237,.25), rgba(34,197,94,.18));
   border: 1px solid rgba(255,255,255,.08);
 }
-.producer-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.producer-avatar img {
+.producer-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
 .producer-avatar span {
   font-weight: bold;
   color: white;

@@ -143,33 +143,31 @@
       <div class="producer-grid">
         <% producers.forEach(producer => { %>
           <article class="producer-card premium-producer">
-            <div class="producer-top">
-  <div class="producer-avatar">
-    <% if (producer.logo) { %>
-      <img src="<%= producer.logo %>" alt="<%= producer.name %>">
-    <% } else { %>
-      <span><%= producer.name.charAt(0).toUpperCase() %></span>
-    <% } %>
+  <div class="producer-top">
+    <div class="producer-logo">
+      <% if (producer.logo) { %>
+        <img src="<%= producer.logo %>" alt="<%= producer.name %>">
+      <% } else { %>
+        <span><%= producer.name.charAt(0).toUpperCase() %></span>
+      <% } %>
+    </div>
+
+    <div>
+      <h3><%= producer.name %></h3>
+      <% if (producer.category) { %>
+        <p class="muted"><%= producer.category %></p>
+      <% } %>
+    </div>
   </div>
 
-  <div>
-    <h3><%= producer.name %></h3>
-    <% if (producer.category) { %>
-      <p class="muted"><%= producer.category %></p>
-    <% } %>
-  </div>
-</div>
-                <h3><%= producer.name %></h3>
-                <% if (producer.category) { %>
-                  <p class="muted"><%= producer.category %></p>
-                <% } %>
-              </div>
-            </div>
-            <% if (producer.notes) { %>
-              <p><%= producer.notes %></p>
-            <% } %>
-            <a class="button-link" href="<%= producer.instagram_url %>" target="_blank" rel="noreferrer">Visitar Instagram</a>
-          </article>
+  <% if (producer.notes) { %>
+    <p><%= producer.notes %></p>
+  <% } %>
+
+  <a class="button-link" href="<%= producer.instagram_url %>" target="_blank" rel="noreferrer">
+    Visitar Instagram
+  </a>
+</article>
         <% }) %>
       </div>
     </section>
