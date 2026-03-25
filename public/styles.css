@@ -349,9 +349,9 @@ textarea { resize: vertical; }
   }
 }
 .producer-logo {
-  width: 72px;
-  height: 72px;
-  min-width: 72px;
+  width: 90px;
+  height: 90px;
+  min-width: 90px;
   border-radius: 14px;
   overflow: hidden;
   display: flex;
